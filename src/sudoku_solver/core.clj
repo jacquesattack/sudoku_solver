@@ -44,3 +44,38 @@
   
 (defn solved? [puzzle] 
     (= (count puzzle) 16))
+
+(defn create-next-puzzle [puzzle move]
+  (assoc puzzle (move :position) (move :number)))
+
+(defn remove-position-from-moves [all-moves move]
+  (remove #(= (% :position) (move :position)) all-moves))
+
+(defn solve-iterate [puzzle possible-moves]
+  (if (or (solved? puzzle) (= (count possible-moves) 0))
+    puzzle
+    (for [move possible-moves]
+      (let [next-puzzle (create-next-puzzle puzzle move) 
+            next-possible-moves (find-next-moves next-puzzle)]
+        (solve-iterate next-puzzle next-possible-moves)))))
+
+(defn solve [puzzle]
+  (first 
+    (filter solved? 
+      (flatten 
+        (solve-iterate 
+          puzzle 
+          (find-next-moves puzzle))))))
+
+(defn def-value [value]
+  (cond 
+    (nil? value) "-"
+      :else value))
+
+(defn print-puzzle [puzzle]
+  (for [i digits]
+    (printf "%s %s %s %s\n"
+      (def-value (puzzle [i 0]))
+      (def-value (puzzle [i 1]))
+      (def-value (puzzle [i 2]))
+      (def-value (puzzle [i 3])))))
