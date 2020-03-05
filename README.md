@@ -1,4 +1,4 @@
-# sudoku-solver
+# sudoku_solver
 
 Sudoku Solver (4x4 version).
 
