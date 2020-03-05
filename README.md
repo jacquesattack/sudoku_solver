@@ -1,36 +1,31 @@
 # sudoku-solver
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
+Sudoku Solver (4x4 version).
 
 ## Usage
 
-FIXME: explanation
+See unit tests for puzzle format
 
-    $ java -jar sudoku-solver-0.1.0-standalone.jar [args]
+    ```
+    (def puzzle {[0 0] 0
+             [0 1] 1
+             [0 2] 2
+             [0 3] 3
+             [1 0] 2
+             [1 3] 1
+             [2 1] 2
+             [2 2] 3
+             [2 3] 0
+             [3 0] 3
+             [3 1] 0
+             [3 2] 1})
 
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+    (solve puzzle)
+    ```
 
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020 jacquesattack
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at

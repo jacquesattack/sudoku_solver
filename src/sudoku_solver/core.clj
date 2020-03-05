@@ -61,13 +61,14 @@
 
 (defn solve [puzzle]
   (first 
-    (filter solved? 
+    (filter 
+      solved? 
       (flatten 
         (solve-iterate 
           puzzle 
           (find-next-moves puzzle))))))
 
-(defn def-value [value]
+(defn default-value [value]
   (cond 
     (nil? value) "-"
       :else value))
@@ -75,7 +76,7 @@
 (defn print-puzzle [puzzle]
   (for [i digits]
     (printf "%s %s %s %s\n"
-      (def-value (puzzle [i 0]))
-      (def-value (puzzle [i 1]))
-      (def-value (puzzle [i 2]))
-      (def-value (puzzle [i 3])))))
+      (default-value (puzzle [i 0]))
+      (default-value (puzzle [i 1]))
+      (default-value (puzzle [i 2]))
+      (default-value (puzzle [i 3])))))
