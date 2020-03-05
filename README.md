@@ -6,7 +6,6 @@ Sudoku Solver (4x4 version).
 
 See unit tests for puzzle format
 
-    ```
     (def puzzle {[0 0] 0
              [0 1] 1
              [0 2] 2
@@ -21,7 +20,6 @@ See unit tests for puzzle format
              [3 2] 1})
 
     (solve puzzle)
-    ```
 
 ## License
 
